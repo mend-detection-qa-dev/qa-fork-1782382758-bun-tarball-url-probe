@@ -1,0 +1,9 @@
+{
+  "name": "bun-tarball-url-probe",
+  "version": "0.1.0",
+  "description": "Mend SCA detection probe — tarball-url pattern. Declares a dependency as a .tgz tarball URL rather than a semver registry reference.",
+  "private": true,
+  "dependencies": {
+    "is-odd": "https://registry.npmjs.org/is-odd/-/is-odd-3.0.1.tgz"
+  }
+}

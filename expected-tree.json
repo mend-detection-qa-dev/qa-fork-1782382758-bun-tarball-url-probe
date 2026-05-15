@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "pm": "bun",
+  "pm_version_tested": "1.2.0",
+  "source_file": "bun.lock",
+  "generated_at": "2026-05-15T00:00:00+00:00",
+  "root": {
+    "name": "bun-tarball-url-probe",
+    "version": "0.1.0",
+    "dependencies": [
+      "is-odd"
+    ]
+  },
+  "packages": {
+    "is-odd": {
+      "version": "3.0.1",
+      "source": "url",
+      "group": "main",
+      "dependencies": [
+        "is-number"
+      ],
+      "source_detail": {
+        "url": "https://registry.npmjs.org/is-odd/-/is-odd-3.0.1.tgz"
+      }
+    },
+    "is-number": {
+      "version": "6.0.0",
+      "source": "registry",
+      "group": "main",
+      "dependencies": [],
+      "source_detail": {
+        "registry": "https://registry.npmjs.org"
+      }
+    }
+  },
+  "project_metadata": {
+    "source_file": "bun.lock",
+    "groups": [
+      "main"
+    ]
+  },
+  "warnings": [
+    "ASSERTION: is-odd MUST have source='url', NOT source='registry'. The manifest declares 'is-odd' as 'https://registry.npmjs.org/is-odd/-/is-odd-3.0.1.tgz' — a tarball URL, not a semver registry reference. If Mend reports source='registry', that is the exact failure mode this probe targets.",
+    "ASSERTION: source_detail for is-odd MUST carry the full tarball URL ('https://registry.npmjs.org/is-odd/-/is-odd-3.0.1.tgz') under the 'url' key. A 'registry' key instead of 'url' is a mis-classification.",
+    "is-number@6.0.0 is a transitive dep pulled in by is-odd's own dependency declaration ('is-number: ^6.0.0'). It is a normal registry dep (source='registry') — the URL declaration of is-odd does NOT propagate to its transitives.",
+    "Bun is NOT a UA-supported resolver. Mend will attempt npm-resolver fallback against bun.lock. JSONC comments and trailing commas in bun.lock may cause parse failures on older Mend versions.",
+    "The tarball URL host (registry.npmjs.org) is the same as the npm registry host. A naive Mend parser might re-classify this as source='registry' based on the URL hostname alone. The correct classification is driven by the manifest declaration form (URL string, not semver range), not the hostname."
+  ]
+}
